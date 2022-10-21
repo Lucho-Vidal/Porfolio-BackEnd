@@ -1,47 +1,31 @@
-package com.porfolio.luvidev.Entity;
+package com.porfolio.luvidev.Dto;
 
+import javax.validation.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-
-
-@Entity
-public class Persona {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+/**
+ *
+ * @author lucho
+ */
+public class dtoPersona {
+    @NotBlank
     private String nombre;
-    
-    @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    @NotBlank
     private String apellido;
-    
-    @NotNull
+    @NotBlank
     private String descripcion;
-    
+    @NotBlank
     private String img;
-    
+    @NotBlank
     private String imgBanner;
-    
-    @NotNull
+    @NotBlank
     private String titulo;
-    
-    @NotNull
+    @NotBlank 
     private String locacion;
 
-    public Persona() {
+    public dtoPersona() {
     }
 
-    public Persona(int id, String nombre, String apellido, String descripcion, String img,String imgBanner, String titulo, String locacion) {
-        this.id = id;
+    public dtoPersona(String nombre, String apellido, String descripcion, String img,String imgBanner, String titulo, String locacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
@@ -49,6 +33,7 @@ public class Persona {
         this.imgBanner = imgBanner;
         this.titulo = titulo;
         this.locacion = locacion;
+        
     }
 
     public String getImgBanner() {
@@ -75,16 +60,8 @@ public class Persona {
     public void setLocacion(String locacion) {
         this.locacion = locacion;
     }
-
-   
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -116,4 +93,6 @@ public class Persona {
     public void setImg(String img) {
         this.img = img;
     }
-   }
+    
+    
+}
