@@ -38,7 +38,7 @@ public class JwtProvider {
                 .setSubject(usuarioPrincipal.getUsername())
                 .claim("roles", roles)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime()+expiration))
+                .setExpiration(new Date(new Date().getTime()+expiration * 180))//20000ms * 180 = 3600000ms = 60 minutos
                 .signWith(SignatureAlgorithm.HS512,secret.getBytes())
                 .compact();
     }
