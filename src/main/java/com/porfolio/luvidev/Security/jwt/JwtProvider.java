@@ -1,5 +1,9 @@
 package com.porfolio.luvidev.Security.jwt;
 
+import com.nimbusds.jwt.JWT;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.JWTParser;
+import com.porfolio.luvidev.Security.Dto.JwtDto;
 import com.porfolio.luvidev.Security.Entity.UsuarioPrincipal;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -7,6 +11,7 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,16 +39,16 @@ public class JwtProvider {
                 .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime()+expiration*1000))
-                .signWith(SignatureAlgorithm.HS512,secret)
+                .signWith(SignatureAlgorithm.HS512,secret.getBytes())
                 .compact();
     }
     
     public String getNombreUsuarioFromToken(String token){
-        return  Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
+        return  Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody().getSubject();
     }
     public boolean validateToken(String token){
         try{
-            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+            Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token);
             return true;
         }catch (MalformedJwtException e){
             logger.error("Token mal formado");
@@ -57,6 +62,19 @@ public class JwtProvider {
             logger.error("Firma no valida");
         }
         return false;
+    }
+    public String refreshToken(JwtDto jwtDto) throws ParseException{
+        JWT jwt = JWTParser.parse(jwtDto.getToken());
+        JWTClaimsSet claims = jwt.getJWTClaimsSet();
+        String nombreUsuario = claims.getSubject();
+        List<String> roles = (List<String>)claims.getClaim("roles");
+        return Jwts.builder()
+                .setSubject(nombreUsuario)
+                .claim("roles", roles)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(new Date().getTime()+expiration*1000))
+                .signWith(SignatureAlgorithm.HS512,secret.getBytes())
+                .compact();
     }
     
 }
