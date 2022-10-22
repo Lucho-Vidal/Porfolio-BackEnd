@@ -9,6 +9,7 @@ import com.porfolio.luvidev.Security.Enums.RolNombre;
 import com.porfolio.luvidev.Security.Service.RolService;
 import com.porfolio.luvidev.Security.Service.UsuarioService;
 import com.porfolio.luvidev.Security.jwt.JwtProvider;
+import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.Valid;
@@ -82,5 +83,12 @@ public class AuthController {
         String jwt = jwtProvider.generateToken(authentication);
         JwtDto jwtDto = new JwtDto(jwt);
         return new ResponseEntity(jwtDto, HttpStatus.OK);
+    }
+    
+    @PostMapping("/refresh")
+    public ResponseEntity<JwtDto> refresh (@RequestBody JwtDto jwtDto) throws ParseException {
+        String token = jwtProvider.refreshToken(jwtDto);
+        JwtDto jwt = new JwtDto(token);
+        return new ResponseEntity(jwt, HttpStatus.OK);
     }
 }
