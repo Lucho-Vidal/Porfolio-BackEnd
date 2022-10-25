@@ -1,8 +1,10 @@
 
 package com.porfolio.luvidev.Entity;
 
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,9 +14,11 @@ import javax.persistence.Id;
 @Entity
 public class Experiencia {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombreE;
+    private String img;
+    private LocalDate fecha;
     private String descripcionE;
     
     //Constructores
@@ -22,12 +26,12 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String nombrreE, String descripcionE) {
-        this.nombreE = nombrreE;
+    public Experiencia( String nombreE, String img, LocalDate fecha, String descripcionE) {
+        this.nombreE = nombreE;
+        this.img = img;
+        this.fecha = fecha;
         this.descripcionE = descripcionE;
     }
-    
-    //Getters and setters
 
     public int getId() {
         return id;
@@ -45,6 +49,22 @@ public class Experiencia {
         this.nombreE = nombreE;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
     public String getDescripcionE() {
         return descripcionE;
     }
@@ -52,5 +72,8 @@ public class Experiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+    
+    
+    
     
 }
