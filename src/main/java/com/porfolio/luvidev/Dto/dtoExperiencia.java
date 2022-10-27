@@ -14,7 +14,8 @@ public class dtoExperiencia {
     
     private String img;
     
-    private LocalDate fecha;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     @NotBlank
     private String descripcionE;
     
@@ -23,10 +24,11 @@ public class dtoExperiencia {
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String img, LocalDate fecha, String descripcionE) {
+    public dtoExperiencia(String nombreE, String img, LocalDate fechaInicio, LocalDate fechaFin, String descripcionE) {
         this.nombreE = nombreE;
         this.img = img;
-        this.fecha = fecha;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
         this.descripcionE = descripcionE;
     }
 
@@ -46,12 +48,20 @@ public class dtoExperiencia {
         this.img = img;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public String getDescripcionE() {
@@ -61,6 +71,8 @@ public class dtoExperiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+
+    
 
     
     

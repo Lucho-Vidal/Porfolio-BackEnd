@@ -13,17 +13,19 @@ public class dtoEducacion {
     private String descripcionE;
     private String instituto;
     private String img;
-    private LocalDate fecha;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String nombreE, String descripcionE, String instituto, String img, LocalDate fecha) {
+    public dtoEducacion(String nombreE, String descripcionE, String instituto, String img, LocalDate fechaInicio, LocalDate fechaFin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.instituto = instituto;
         this.img = img;
-        this.fecha = fecha;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     public String getNombreE() {
@@ -58,12 +60,20 @@ public class dtoEducacion {
         this.img = img;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     

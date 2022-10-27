@@ -18,7 +18,8 @@ public class Experiencia {
     private int id;
     private String nombreE;
     private String img;
-    private LocalDate fecha;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private String descripcionE;
     
     //Constructores
@@ -26,10 +27,11 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia( String nombreE, String img, LocalDate fecha, String descripcionE) {
+    public Experiencia( String nombreE, String img, LocalDate fechaInicio, LocalDate fechaFin, String descripcionE) {
         this.nombreE = nombreE;
         this.img = img;
-        this.fecha = fecha;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
         this.descripcionE = descripcionE;
     }
 
@@ -57,12 +59,20 @@ public class Experiencia {
         this.img = img;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public String getDescripcionE() {
@@ -72,6 +82,8 @@ public class Experiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+
+   
     
     
     

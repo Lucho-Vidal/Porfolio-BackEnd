@@ -18,17 +18,20 @@ public class Educacion {
     private String descripcionE;
     private String instituto;
     private String img;
-    private LocalDate fecha;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
 
     public Educacion() {
     }
 
-    public Educacion(String nombreE, String descripcionE, String instituto, String img, LocalDate fecha) {
+    public Educacion( String nombreE, String descripcionE, String instituto, String img, LocalDate fechaInicio, LocalDate fechaFin) {
+        
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.instituto = instituto;
         this.img = img;
-        this.fecha = fecha;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     public int getId() {
@@ -71,13 +74,22 @@ public class Educacion {
         this.img = img;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    
    
 }
