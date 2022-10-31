@@ -25,6 +25,7 @@ public class Persona {
     private String apellido;
     
     @NotNull
+    @Size(min = 1, max = 1000, message = "no cumple con la longitud")
     private String descripcion;
     
     private String img;

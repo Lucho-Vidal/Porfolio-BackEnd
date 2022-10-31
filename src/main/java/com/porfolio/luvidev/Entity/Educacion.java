@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 /**
  *
  * @author lucho
@@ -15,6 +16,8 @@ public class Educacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombreE;
+    
+    @Size(min = 1, max = 1000, message = "no cumple con la longitud")
     private String descripcionE;
     private String instituto;
     private String img;

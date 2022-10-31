@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 /**
  * 3/10/22
@@ -20,6 +21,8 @@ public class Experiencia {
     private String img;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
+    
+    @Size(min = 1, max = 1000, message = "no cumple con la longitud")
     private String descripcionE;
     
     //Constructores
