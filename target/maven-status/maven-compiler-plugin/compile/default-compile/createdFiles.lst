@@ -20,6 +20,7 @@ com\porfolio\luvidev\Dto\dtoProyecto.class
 com\porfolio\luvidev\Entity\Proyecto.class
 com\porfolio\luvidev\Repository\IPersonaRepository.class
 com\porfolio\luvidev\Entity\Persona.class
+com\porfolio\luvidev\WebConfig.class
 com\porfolio\luvidev\Security\Service\UsuarioService.class
 com\porfolio\luvidev\Service\Seducacion.class
 com\porfolio\luvidev\Security\MainSecurity.class
