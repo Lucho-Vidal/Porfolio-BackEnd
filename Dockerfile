@@ -1,9 +1,4 @@
-
-//Imagen de la que partimos
 FROM amazoncorretto:11-alpine-jdk
-//dueño del paquete
 MAINTAINER luvidev
-//copia el empaquetado a github
-COPY  
-//instruccion a ejecutar primero
-ENTRYPOINT 
+COPY target/luvidev-0.0.1-SNAPSHOT.jar  luvidev-app.jar
+ENTRYPOINT ["java","-jar","/luvidev-app.jar"]
